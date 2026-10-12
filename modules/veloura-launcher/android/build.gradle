@@ -1,0 +1,22 @@
+plugins {
+  id 'com.android.library'
+  id 'expo-module-gradle-plugin'
+}
+
+group = 'expo.modules.velouralauncher'
+version = '1.0.0'
+
+android {
+  namespace "expo.modules.velouralauncher"
+  defaultConfig {
+    versionCode 1
+    versionName '1.0.0'
+  }
+}
+
+dependencies {
+  // On-device face detection (bundled model — works offline, no upload).
+  implementation 'com.google.mlkit:face-detection:16.1.7'
+  // On-device person cutout for Remove BG (bundled model).
+  implementation 'com.google.mlkit:segmentation-selfie:16.0.0-beta6'
+}

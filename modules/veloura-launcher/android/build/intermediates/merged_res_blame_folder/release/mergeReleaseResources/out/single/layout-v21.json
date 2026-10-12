@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "expo.modules.velouralauncher.veloura-launcher-release-21:/layout-v21/notification_action_tombstone.xml",
+        "source": "expo.modules.velouralauncher.veloura-launcher-core-1.9.0-17:/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "expo.modules.velouralauncher.veloura-launcher-release-21:/layout-v21/notification_action.xml",
+        "source": "expo.modules.velouralauncher.veloura-launcher-core-1.9.0-17:/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "expo.modules.velouralauncher.veloura-launcher-release-21:/layout-v21/notification_template_icon_group.xml",
+        "source": "expo.modules.velouralauncher.veloura-launcher-core-1.9.0-17:/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "expo.modules.velouralauncher.veloura-launcher-release-21:/layout-v21/notification_template_custom_big.xml",
+        "source": "expo.modules.velouralauncher.veloura-launcher-core-1.9.0-17:/layout-v21/notification_template_custom_big.xml"
+    }
+]
