@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import { ScrollView, Share, Text, View } from 'react-native';
 import Animated, { FadeInDown } from 'react-native-reanimated';
 
+import BannerAd from '../components/ads/BannerAd';
 import GlowBackdrop from '../components/GlowBackdrop';
 import PressableScale from '../components/PressableScale';
 import HomeModeCard from '../components/profile/HomeModeCard';
@@ -72,6 +73,8 @@ export default function ProfileScreen() {
             <LinkRow title="Contact support" icon="email-outline" onPress={() => comingSoon('Support')} />
           </Panel>
         </Animated.View>
+
+        <BannerAd placement="profileBanner" className="mt-8" />
 
         <ProfileFooter />
       </ScrollView>

@@ -15,6 +15,7 @@ import RoundIconButton from '../components/camera/RoundIconButton';
 import UndoRedo from '../components/UndoRedo';
 import MakeupPanel from '../components/camera/MakeupPanel';
 import GradientButton from '../components/GradientButton';
+import { maybeShowInterstitial } from '../features/ads/ads';
 import {
   FULL_RECT,
   fitRect,
@@ -123,6 +124,7 @@ export default function PhotoReviewScreen({ navigation, route }: RootStackScreen
       await MediaLibrary.Asset.create(rendered);
       if (settingsStore.get().saveCreations) await saveCreation(rendered);
       setSaved(true);
+      maybeShowInterstitial();
       setTimeout(() => setSaved(false), 2200);
     } catch (e) {
       Alert.alert('Could not save photo', e instanceof Error ? e.message : String(e));

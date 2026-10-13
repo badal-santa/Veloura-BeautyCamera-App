@@ -16,6 +16,7 @@ import type { Pan } from '../components/templates/PhotoSlot';
 import TemplateCanvas from '../components/templates/TemplateCanvas';
 import TemplateTabs, { type TemplateTab } from '../components/templates/TemplateTabs';
 import { findTemplate, TEMPLATES } from '../data/templates';
+import { maybeShowInterstitial } from '../features/ads/ads';
 import { FULL_RECT, fitRect } from '../features/beauty/crop';
 import { exportEditedImage } from '../features/beauty/exportImage';
 import { prepareImage } from '../features/beauty/prepareImage';
@@ -97,6 +98,7 @@ export default function TemplateEditorScreen({ navigation, route }: RootStackScr
       await MediaLibrary.Asset.create(out);
       if (settingsStore.get().saveCreations) await saveCreation(out);
       setSaved(true);
+      maybeShowInterstitial();
       setTimeout(() => setSaved(false), 2200);
     } catch (e) {
       Alert.alert('Could not save', e instanceof Error ? e.message : String(e));

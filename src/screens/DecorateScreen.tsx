@@ -14,6 +14,7 @@ import WatermarkMark from '../components/decorate/WatermarkMark';
 import UndoRedo from '../components/UndoRedo';
 import GradientButton from '../components/GradientButton';
 import PressableScale from '../components/PressableScale';
+import { maybeShowInterstitial } from '../features/ads/ads';
 import { FULL_RECT, fitRect } from '../features/beauty/crop';
 import { exportEditedImage } from '../features/beauty/exportImage';
 import { prepareImage } from '../features/beauty/prepareImage';
@@ -103,6 +104,7 @@ export default function DecorateScreen({ navigation, route }: RootStackScreenPro
       await MediaLibrary.Asset.create(out);
       if (settingsStore.get().saveCreations) await saveCreation(out);
       setSaved(true);
+      maybeShowInterstitial();
       setTimeout(() => setSaved(false), 2200);
     } catch (e) {
       Alert.alert('Could not save', e instanceof Error ? e.message : String(e));

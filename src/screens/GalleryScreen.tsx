@@ -5,6 +5,7 @@ import { useCallback, useState } from 'react';
 import { Alert, ScrollView, Text, View } from 'react-native';
 import Animated, { FadeInDown } from 'react-native-reanimated';
 
+import BannerAd from '../components/ads/BannerAd';
 import CreationsGrid from '../components/gallery/CreationsGrid';
 import PickFromPhoneCard from '../components/gallery/PickFromPhoneCard';
 import GlowBackdrop from '../components/GlowBackdrop';
@@ -72,6 +73,7 @@ export default function GalleryScreen({ navigation }: RootStackScreenProps<'Gall
             onDelete={confirmDelete}
             onEmptyAction={() => navigation.navigate('Capture')}
           />
+          <BannerAd placement="galleryBanner" className="mt-8" />
         </Animated.View>
       </ScrollView>
 

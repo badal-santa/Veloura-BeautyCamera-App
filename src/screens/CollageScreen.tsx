@@ -13,6 +13,7 @@ import GlowBackdrop from '../components/GlowBackdrop';
 import GradientButton from '../components/GradientButton';
 import PressableScale from '../components/PressableScale';
 import type { Pan } from '../components/templates/PhotoSlot';
+import { maybeShowInterstitial } from '../features/ads/ads';
 import { fitRect } from '../features/beauty/crop';
 import { cellRect, COLLAGE_RATIOS, LAYOUTS, type CollageRatio } from '../features/collage/layouts';
 import { saveCreation } from '../features/media/creations';
@@ -104,6 +105,7 @@ export default function CollageScreen({ navigation, route }: RootStackScreenProp
       await MediaLibrary.Asset.create(out);
       if (settingsStore.get().saveCreations) await saveCreation(out);
       setSaved(true);
+      maybeShowInterstitial();
       setTimeout(() => setSaved(false), 2200);
     } catch (e) {
       Alert.alert('Could not save', e instanceof Error ? e.message : String(e));

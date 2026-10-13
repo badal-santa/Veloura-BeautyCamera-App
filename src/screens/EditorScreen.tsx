@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { ScrollView, Text, View } from 'react-native';
 import Animated, { FadeInDown } from 'react-native-reanimated';
 
+import NativeAdCard from '../components/ads/NativeAdCard';
 import LookGrid from '../components/editor/LookGrid';
 import OpenPhotoZone from '../components/editor/OpenPhotoZone';
 import RatioShapes from '../components/editor/RatioShapes';
@@ -46,6 +47,7 @@ export default function EditorScreen() {
         <Animated.View entering={reveal(3)}>
           <SectionTitle title="Tools" />
           <ToolShelves groups={EDITOR_GROUPS} onPress={(r) => runTile(r.title, r)} />
+          <NativeAdCard placement="editorFeed" variant="compact" className="mt-6" />
         </Animated.View>
 
         <Animated.View entering={reveal(4)}>

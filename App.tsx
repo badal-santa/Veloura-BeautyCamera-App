@@ -4,6 +4,7 @@ import { View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+import InterstitialAdHost from './src/components/ads/InterstitialAdHost';
 import { useAppFonts } from './src/lib/fonts';
 import RootNavigator from './src/navigation/RootNavigator';
 
@@ -25,6 +26,7 @@ export default function App() {
       <SafeAreaProvider>
         <View className="flex-1 bg-background" onLayout={onLayoutRootView}>
           <RootNavigator />
+          <InterstitialAdHost />
         </View>
       </SafeAreaProvider>
     </GestureHandlerRootView>

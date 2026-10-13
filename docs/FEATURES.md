@@ -1,6 +1,6 @@
 # Veloura — Features
 
-Veloura is a beauty camera and photo studio for Android (iOS support is partial — see the end). It can also act as the phone's Home screen ("Veloura Home"). Everything runs on the device: photos and videos are never uploaded, there are no accounts, no ads and no analytics.
+Veloura is a beauty camera and photo studio for Android (iOS support is partial — see the end). It can also act as the phone's Home screen ("Veloura Home"). Everything runs on the device: photos and videos are never uploaded, there are no accounts and no analytics. Ad slots are designed but not live yet (see *Ads* below).
 
 Status as of October 2026, version 1.0.0.
 
@@ -116,3 +116,21 @@ Shown as "coming soon" or *SOON* in the app: Freestyle canvas, Pic sew, Mask ove
 ## Platform notes
 
 Built and tested on Android (Moto g96, Android 16). Video Studio, Remove BG, face-aware beauty, makeup and Veloura Home rely on Android-native code and are hidden or inactive on iOS. The rest of the app is cross-platform but has not been tested on iOS.
+
+---
+
+## Ads (designed, not live)
+
+The ad network isn't chosen yet (Google AdMob, Firebase, or web ads from a URL). The layout is ready: `src/features/ads/config.ts` lists every placement, and the UI lives in `src/components/ads/`. With `AD_PROVIDER = 'none'`, dev builds show placeholder ads and release builds show none.
+
+| Placement | Format | Where |
+|---|---|---|
+| `homeFeed` | Native card with image | Home, between *Trending looks* and *Made for you* |
+| `editorFeed` | Compact native row | Editor tab, under *Tools* |
+| `templatesFeed` | Compact native row | Templates, under the featured design |
+| `galleryBanner` | Banner | Gallery, below *My creations* |
+| `profileBanner` | Banner | Profile, above the footer |
+| `afterSave` | Full screen | After saving a photo or video: every 3rd save, at most once per 90 s, closable after 5 s |
+
+No ads in the camera, any editing screen, or Veloura Home (Play policy forbids ads on a home-screen app). Every ad carries an "AD" label.
+

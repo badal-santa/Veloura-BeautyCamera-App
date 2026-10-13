@@ -13,6 +13,7 @@ import GlowBackdrop from '../components/GlowBackdrop';
 import GradientButton from '../components/GradientButton';
 import PressableScale from '../components/PressableScale';
 import TrimTimeline from '../components/video/TrimTimeline';
+import { maybeShowInterstitial } from '../features/ads/ads';
 import { VelouraLauncher } from '../features/launcher/launcher';
 import { pickVideo } from '../features/media/pickVideo';
 import { formatMs } from '../lib/formatTime';
@@ -115,6 +116,7 @@ export default function VideoStudioScreen({ navigation, route }: RootStackScreen
       await MediaLibrary.Asset.create(out.uri);
       setLastExport(out.uri);
       setSaved(true);
+      maybeShowInterstitial();
       setTimeout(() => setSaved(false), 2200);
     } catch (e) {
       Alert.alert('Export failed', e instanceof Error ? e.message : String(e));

@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { ScrollView, View } from 'react-native';
 import Animated, { FadeInDown } from 'react-native-reanimated';
 
+import NativeAdCard from '../components/ads/NativeAdCard';
 import GlowBackdrop from '../components/GlowBackdrop';
 import ForYouCards from '../components/home/ForYouCards';
 import HomeGreeting from '../components/home/HomeGreeting';
@@ -54,6 +55,10 @@ export default function HomeScreen() {
         </Animated.View>
 
         <Animated.View entering={reveal(4)}>
+          <NativeAdCard placement="homeFeed" className="mt-8" />
+        </Animated.View>
+
+        <Animated.View entering={reveal(5)}>
           <SectionTitle title="Made for you" />
           <ForYouCards rows={LOOKS_FOR_YOU} onPress={(r) => runTile(r.title, r)} />
         </Animated.View>

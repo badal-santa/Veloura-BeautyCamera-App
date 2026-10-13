@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react';
 import { ScrollView, Text, View } from 'react-native';
 import Animated, { FadeIn, FadeInDown } from 'react-native-reanimated';
 
+import NativeAdCard from '../components/ads/NativeAdCard';
 import GlowBackdrop from '../components/GlowBackdrop';
 import StatusBarFade from '../components/StatusBarFade';
 import FeaturedTemplate from '../components/templates/FeaturedTemplate';
@@ -38,6 +39,7 @@ export default function TemplatesScreen() {
 
         <Animated.View key={category} entering={FadeIn.duration(300)}>
           {featured && <FeaturedTemplate template={featured} onUse={open} />}
+          <NativeAdCard placement="templatesFeed" variant="compact" className="mt-4" />
           {rest.length > 0 && (
             <View className="mt-6">
               <TemplateMasonry templates={rest} onUse={open} />

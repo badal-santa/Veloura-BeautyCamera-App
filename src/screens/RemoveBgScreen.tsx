@@ -10,6 +10,7 @@ import Animated, { FadeIn, FadeInUp, FadeOutUp } from 'react-native-reanimated';
 
 import RoundIconButton from '../components/camera/RoundIconButton';
 import GradientButton from '../components/GradientButton';
+import { maybeShowInterstitial } from '../features/ads/ads';
 import { FULL_RECT, fitRect } from '../features/beauty/crop';
 import { exportEditedImage } from '../features/beauty/exportImage';
 import { prepareImage } from '../features/beauty/prepareImage';
@@ -105,6 +106,7 @@ export default function RemoveBgScreen({ navigation, route }: RootStackScreenPro
       // My creations only lists JPEGs.
       if (!out.png && settingsStore.get().saveCreations) await saveCreation(out.uri);
       setSaved(true);
+      maybeShowInterstitial();
       setTimeout(() => setSaved(false), 2200);
     } catch (e) {
       Alert.alert('Could not save', e instanceof Error ? e.message : String(e));
